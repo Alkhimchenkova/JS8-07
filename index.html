@@ -113,47 +113,78 @@
     // 1. Распечатка чека на экран.
     // 2. Подсчет общей суммы покупки.
 
-    class  Product
-    {
-        constructor(pName,pQuantity, pPrice)
-        {
-            this.name=pName;
-            this.quantity=pQuantity;
-            this.price=pPrice;
-        }
-        display() {
-            console.log(this.quantity + ' ' + this.name +' are '+ this.price+' uar');
-        }
+   //  class  Product
+   //  {
+   //      constructor(pName,pQuantity, pPrice)
+   //      {
+   //          this.name=pName;
+   //          this.quantity=pQuantity;
+   //          this.price=pPrice;
+   //      }
+   //      display() {
+   //          console.log(this.quantity + ' ' + this.name +' are '+ this.price+' uar');
+   //      }
+   //
+   //  }
+   //
+   // let cheque=[new Product('carrot', 3, 15.25), new Product('milk',1, 15), new Product('bread', 2, 18.03)];
+   //
+   //  function chequeDisplay(cheque) {
+   //
+   //          for(let i=0;i<cheque.length;i++)
+   //          {
+   //              cheque[i].display();
+   //          }
+   //      }
+   //  chequeDisplay(cheque);
+   //
+   //  cheque.result=result;
+   //  function result() {
+   //      let sum=0;
+   //      for(let i=0; i<cheque.length;i++)
+   //      {
+   //
+   //          sum+=cheque[i].price;
+   //      }
+   //      // console.log('The summary is '+ sum+ 'uar');
+   //      return sum;
+   //
+   //  }
+   //
+   //  cheque.result();
+   //  // Домашнее задание №2
+   //  // 3. Получение самой дорогой покупки в чеке.
+   //  cheque.Max=Max;
+   //  function Max() {
+   //      let maxNumb=0;
+   //      for(let i=0; i<cheque.length;i++)
+   //      {
+   //           if(cheque[i].price>maxNumb)
+   //          {
+   //              maxNumb=cheque[i].price;
+   //
+   //          }
+   //      }
+   //      for(let i=0; i<cheque.length;i++)
+   //      {
+   //
+   //          if(cheque[i].price===maxNumb)
+   //          {
+   //              console.log('the most expensive product is ' + (cheque[i].name));
+   //          }
+   //      }
+   //   }
+   //  cheque.Max();
+   //  // 4. Подсчет средней стоимости одного товара в чеке.
+   //  cheque.avg=avg;
+   //  function avg() {
+   //      let res=result();
+   //      let avgNumb=(res/cheque.length).toFixed(3);
+   //      console.log('the Average price is '+avgNumb);
+   //  }
+   //  cheque.avg();
 
-    }
 
-   let cheque=[new Product('carrot', 3, 15.25), new Product('milk',1, 15), new Product('bread', 2, 18.03)];
-
-    function chequeDisplay(cheque) {
-
-            for(let i=0;i<cheque.length;i++)
-            {
-                cheque[i].display();
-            }
-        }
-    chequeDisplay(cheque);
-
-    cheque.result=result;
-    function result() {
-        let sum=0;
-        for(let i=0; i<cheque.length;i++)
-        {
-
-            sum+=cheque[i].price;
-        }
-        console.log('The summary is '+ sum+ 'uar');
-
-    }
-
-    cheque.result();
-    // Домашнее задание №2
-    // 3. Получение самой дорогой покупки в чеке.
-    // 4. Подсчет средней стоимости одного товара в чеке.
     //     Задание 3
     // Создать массив css-стилей (цвет, размер шрифта, выравнива-
     // ние, подчеркивание и т. д.). Каждый элемент массива – это объ-
@@ -162,6 +193,27 @@
     // текст, и выводит этот текст с помощью document.write() в тегах
     // <p></p>, добавив в открывающий тег атрибут style со всеми сти-
     // лями, перечисленными в массиве.
+    class Style{
+        constructor(pName,pValue){
+            this.Name=pName;
+            this.Value=pValue;
+        }
+    }
+    let styles=[new Style('background-color', 'red'), new Style('font-size', 25), new Style('font-color', 'yellow')];
+    styles.display=display;
+        function display(text) {
+            for(let i=0;i<styles.length;i++)
+            {
+                // document.getElementById(text).innerHTML=text.style='styles[i].name'+':'+'styles[i].Value';
+
+                let elem=text;
+                elem.style.cssText=styles[i].Name+':'+styles[i].Value;
+           document.write(elem);
+            }
+// document.write(<p> text</p>)
+    }
+    styles.display('abcdefghgkl');
+
     //     Задание 4
     // Создать массив аудиторий академии. Объект-аудитория со-
     // стоит из названия, количества посадочных мест (от 10 до 20) и
