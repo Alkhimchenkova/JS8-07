@@ -193,26 +193,27 @@
     // текст, и выводит этот текст с помощью document.write() в тегах
     // <p></p>, добавив в открывающий тег атрибут style со всеми сти-
     // лями, перечисленными в массиве.
-    class Style{
-        constructor(pName,pValue){
-            this.Name=pName;
-            this.Value=pValue;
-        }
-    }
-    let styles=[new Style('background-color', 'red'), new Style('font-size', 25), new Style('font-color', 'yellow')];
-    styles.display=display;
-        function display(text) {
-            for(let i=0;i<styles.length;i++)
-            {
-                // document.getElementById(text).innerHTML=text.style='styles[i].name'+':'+'styles[i].Value';
-
-                let elem=text;
-                elem.style.cssText=styles[i].Name+':'+styles[i].Value;
-           document.write(elem);
-            }
-// document.write(<p> text</p>)
-    }
-    styles.display('abcdefghgkl');
+//     class Style{
+//         constructor(pName,pValue){
+//             this.Name=pName;
+//             this.Value=pValue;
+//         }
+//         getstyle(){
+//             return(this.Name+':'+this.Value);
+//         }
+//     }
+//     let styles=[new Style('background-color', 'red'), new Style('font-size', '45px'), new Style("text-decoration", "underline")];
+//     styles.display=display;
+//
+//         function display(text) {
+//             for(let i=0;i<styles.length;i++)
+//             {
+//
+//            document.write(`<p style="${styles[i].getstyle()}">${text}</p>`);
+//             }
+// // document.write(<p> text</p>)
+//     }
+//     styles.display('abcdefghgkl');
 
     //     Задание 4
     // Создать массив аудиторий академии. Объект-аудитория со-
@@ -227,6 +228,74 @@
     // 4. Функция сортировки аудиторий по количеству мест.
     // 5. Функция сортировки аудиторий по названию (по алфа-
     // виту).
+    class Room{
+        constructor(pName,Place, faculty){
+            this.Name=pName;
+            this.Place=Place;
+            this.Faculty=faculty;
+        }
+        display_one() {
+            console.log(this.Name + ' room has ' + this.Place +' places and is for '+ this.Faculty+' faculty');
+            }
+
+    }
+    let rooms=[new Room(305, 80, 'Foreign languages' ), new Room(203, 30, 'ukranian filology'),new Room(315, 30, "psychology")];
+    let room=new Room(112, 25, 'Foreign languages');
+   rooms.push(room);
+    rooms.display=display;
+    function display() {
+        for(let i=0;i<rooms.length;i++)
+        {
+            rooms[i].display_one();
+        }
+
+    }
+    // rooms.display()
+    // rooms.Faculty_room=Faculty_room;
+    // function Faculty_room(faculty) {
+    //     for (let i=0;i<rooms.length;i++){
+    //         if(rooms[i].Faculty==faculty)
+    //         {
+    //             rooms[i].display_one();
+    //         }
+    //     }
+    // }
+    // rooms.Faculty_room('Foreign languages');
+    class Group{
+        constructor(pName, pStudent,pFaculty){
+            this.Name=pName;
+            this.Quantity=pStudent;
+            this.faculty=pFaculty;
+        }
+    }
+    let group=new Group('GED-15', 26,'Foreign languages');
+    rooms.Group_room=Group_room;
+    function Group_room(group) {
+        for (let i=0;i<rooms.length;i++){
+            if(rooms[i].Faculty==group.faculty&&rooms[i].Place>=group.Quantity)
+            {
+                rooms[i].display_one();
+
+            }
+        }
+
+    }
+    rooms.Group_room(group);
+    // function compare(r1,r2)
+    // {
+    //     if(r.places > r2.places) {return -1}
+    //     if(r2.places > r1.places) {return 1}
+    // }
+    // function sort_places()
+    // {
+    //     rooms.sort(compare);
+    //     view_all();
+    // }
+    // sort_places();
+    // rooms.sort((a,b) => (a.Place > b.Place) ? 1 : ((b.Place > a.Place) ? -1 : 0));
+    // rooms.display();
+    rooms.sort((a,b) => (a.Name > b.Name) ? 1 : ((b.Name > a.Name) ? -1 : 0));
+    rooms.display();
 </script>
 </body>
 </html>
